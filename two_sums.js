@@ -1,5 +1,24 @@
 function twoSums (nums, target) {
-    
+    let output = [];
+
+    // compare each element with another without repeating the same pair
+    for (let i = 0; i < nums.length - 1; i++) {
+        for (let j = i + 1; j < nums.length; j++) {
+            if (nums[i] + nums[j] === target) {
+                output.push([i,j]);
+            }
+        }
+    }
+
+    // if no matches then return "No Matches", if there is more than 1 match then return an array of matches
+    // otherwise, there is only 1 match so return the only match
+    if (output.length === 0) {
+        return "No Matches";
+    } else if (output.length > 1) {
+        return output;
+    } else {
+        return output[0];
+    }
 }
 
 
